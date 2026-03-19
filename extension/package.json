@@ -1,0 +1,45 @@
+{
+  "name": "axon",
+  "displayName": "Axon",
+  "description": "AI powered API testing that reads your codebase",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": ["Other"],
+  "activationEvents [],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "axon.start",
+        "title": "Axon: Start"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "axon",
+          "title": "Axon",
+          "icon": "media/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "axon": [
+        {
+          "id": "axonRoutes",
+          "name": "API Routes"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "typescript": "^5.0.0"
+  }
+}
