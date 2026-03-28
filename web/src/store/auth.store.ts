@@ -44,20 +44,20 @@ export const useAuthStore = create<AuthState>((set, get) => ({
       set({ initialized: true });
     }
   },
-
-  signIn: async (email, password) => {
-    set({ loading: true });
-    try {
-      const { data } = await authAPI.signIn({ email, password });
-      const token = data.session?.access_token;
-      saveToken(token);
-      saveUser(data.user);
-      set({ user: data.user, token, loading: false });
-    } catch (err) {
-      set({ loading: false });
-      throw err;
-    }
-  },
+  
+signIn: async (email, password) => {
+  set({ loading: true });
+  try {
+    const { data } = await authAPI.signIn({ email, password });
+    const token = data.session?.access_token;
+    saveToken(token);
+    saveUser(data.user);
+    set({ user: data.user, token, loading: false, initialized: true });
+  } catch (err) {
+    set({ loading: false });
+    throw err;
+  }
+},
 
   signUp: async (email, password, full_name) => {
     set({ loading: true });
